@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Organizador de Projetos</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+
+  #timer {
+    font-size: 48px;
+    margin-bottom: 20px;
+  }
+
+  .button {
+    font-size: 18px;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+
+  .button:hover {
+    background-color: #45a049;
+  }
+</style>
+</head>
+<body>
+
+<div id="timer">00:00:00</div>
+
+<div>
+  <button class="button" onclick="startTimer()">Iniciar</button>
+  <button class="button" onclick="pauseTimer()">Pausar</button>
+  <button class="button" onclick="resetTimer()">Reiniciar</button>
+  <button class="button" onclick="nextProject()">Próximo Projeto</button>
+</div>
+
+<script>
+let timerInterval;
+let totalSeconds = 0;
+let currentProjectIndex = 0;
+const projects = ["Projeto 1", "Projeto 2", "Projeto 3", "Projeto 4"];
+
+function startTimer() {
+  timerInterval = setInterval(updateTimer, 1000);
+}
+
+function pauseTimer() {
+  clearInterval(timerInterval);
+}
+
+function resetTimer() {
+  clearInterval(timerInterval);
+  totalSeconds = 0;
+  updateTimer();
+}
+
+function nextProject() {
+  currentProjectIndex = (currentProjectIndex + 1) % projects.length;
+  alert(`Próximo projeto: ${projects[currentProjectIndex]}`);
+}
+
+function updateTimer() {
+  const hours = Math.floor(totalSeconds / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  const seconds = totalSeconds % 60;
+  document.getElementById("timer").innerText = `${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
+
+  // Exemplo de interações do timer
+  if (totalSeconds === 5) {
+    alert("Você está há 5 segundos no projeto. Continue assim!");
+  } else if (totalSeconds === 10) {
+    alert("Você está há 10 segundos no projeto. Mantenha o foco!");
+  } else if (totalSeconds === 15) {
+    alert("Você está há 15 segundos no projeto. Faça uma breve pausa se necessário!");
+  }
+
+  totalSeconds++;
+}
+
+function pad(value) {
+  return String(value).padStart(2, '0');
+}
+</script>
+
+</body>
+</html>
