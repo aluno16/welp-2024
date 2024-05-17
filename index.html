@@ -1,95 +1,52 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Organizador de Projetos</title>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-  }
-
-  #timer {
-    font-size: 48px;
-    margin-bottom: 20px;
-  }
-
-  .button {
-    font-size: 18px;
-    padding: 10px 20px;
-    margin: 5px;
-    cursor: pointer;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-  }
-
-  .button:hover {
-    background-color: #45a049;
-  }
-</style>
-</head>
+    <link rel="stylesheet" type="text/css" href="style.css" media="screen">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Meus Objetivos e Metas para 2024</title>
+</head> 
 <body>
 
-<div id="timer">00:00:00</div>
+    <center>
+        <div class="fundo">
+            <div class="fundo"></div>
 
-<div>
-  <button class="button" onclick="startTimer()">Iniciar</button>
-  <button class="button" onclick="pauseTimer()">Pausar</button>
-  <button class="button" onclick="resetTimer()">Reiniciar</button>
-  <button class="button" onclick="nextProject()">Próximo Projeto</button>
-</div>
+        </center>
+    
 
-<script>
-let timerInterval;
-let totalSeconds = 0;
-let currentProjectIndex = 0;
-const projects = ["Projeto 1", "Projeto 2", "Projeto 3", "Projeto 4"];
+        <h1 class="apre">Meus Objetivos para 2024</h1>
+                </div>
 
-function startTimer() {
-  timerInterval = setInterval(updateTimer, 1000);
-}
+                <h1 class="objetivo1">1-Me formar no Ensino Médio</h1>
+                </div>
 
-function pauseTimer() {
-  clearInterval(timerInterval);
-}
+                <h1 class="objetivo2">2- Fechar contrato com a empresa canadence </h1>
+                </div>
+                  
+                <h1 class="objetivo3">3-comprar casa</h1>
+                </div>
 
-function resetTimer() {
-  clearInterval(timerInterval);
-  totalSeconds = 0;
-  updateTimer();
-}
+                <h1 class="objetivo4">4-compra meu VR</h1>
+                </div>
 
-function nextProject() {
-  currentProjectIndex = (currentProjectIndex + 1) % projects.length;
-  alert(`Próximo projeto: ${projects[currentProjectIndex]}`);
-}
+              <h1 class="objetivo5">5-jogar ate zerar todos os souls like </h1>
+            </div>
+             
+            
+            
+            <div class="imagens">
+            
+                <img class="foto 1" src="formatura.jpeg">
+                <img class="foto 2" src="avião.png">
 
-function updateTimer() {
-  const hours = Math.floor(totalSeconds / 3600);
-  const minutes = Math.floor((totalSeconds % 3600) / 60);
-  const seconds = totalSeconds % 60;
-  document.getElementById("timer").innerText = `${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
 
-  // Exemplo de interações do timer
-  if (totalSeconds === 5) {
-    alert("Você está há 5 segundos no projeto. Continue assim!");
-  } else if (totalSeconds === 10) {
-    alert("Você está há 10 segundos no projeto. Mantenha o foco!");
-  } else if (totalSeconds === 15) {
-    alert("Você está há 15 segundos no projeto. Faça uma breve pausa se necessário!");
-  }
+            </div>
 
-  totalSeconds++;
-}
 
-function pad(value) {
-  return String(value).padStart(2, '0');
-}
-</script>
+
+
 
 </body>
 </html>
